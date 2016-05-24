@@ -361,7 +361,7 @@ def main():
         # Automatically apply -e option to extra_args when source is a VCS url. VCS
         # includes those beginning with svn+, git+, hg+ or bzr+
         has_vcs = bool(name and re.match(r'(svn|git|hg|bzr)\+', name))
-        if has_vcs and module.params['editable']:
+        if has_vcs or module.params['editable']:
             args_list = []  # used if extra_args is not used at all
             if extra_args:
                 args_list = extra_args.split(' ')
